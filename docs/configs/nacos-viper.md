@@ -94,4 +94,4 @@ https://github.com/liangboceo/nacos-viper-remote
 ### yuanboot
 https://github.com/liangboceo/yuanboot
 
-🦄🌈 yuanboot is a simple, light and fast , dependency injection based micro-service framework written in Go. Support Nacos ,Consoul ,Etcd ,Eureka ,kubernetes.
+yuanboot is a simple, light and fast , dependency injection based micro-service framework written in Go. Support Nacos ,Consoul ,Etcd ,Eureka ,kubernetes.
