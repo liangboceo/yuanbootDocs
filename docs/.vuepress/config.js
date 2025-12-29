@@ -1,13 +1,13 @@
 module.exports = {
-    title: 'yuanboot-简单、轻量、快速，基于申明式依赖注入的微服务框架，告别Java的臃肿架构',
-    description: '简单、轻量、快速，基于申明式依赖注入的微服务框架，告别Java的臃肿架构',
+    title: 'yuanboot-简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构',
+    description: '简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构',
     base : '/',
     theme: 'default-prefers-color-scheme',
     markdown: {
       lineNumbers: false // 代码块显示行号
     },
      head: [
-      ['meta', {description:'简单、轻量、快速，基于申明式依赖注入的微服务框架，告别Java的臃肿架构'}],
+      ['meta', {description:'简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构'}],
       ['link', { rel: 'icon', href: 'https://yuanboot.star2cloud.com/images/logo.png' }],
       ['script', {}, `
               var _hmt = _hmt || [];

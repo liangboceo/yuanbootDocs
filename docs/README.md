@@ -2,7 +2,7 @@
 home: true
 heroImage: https://yuanboot.star2cloud.com/images/logo.png
 heroText: 服务物联网,拥抱ServerLess
-tagline: 简单、轻量、快速，基于申明式依赖注入的微服务框架，告别Java的臃肿架构
+tagline: 简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构
 actionText: 快速上手 →
 actionLink: /quickstart/begin.md
 features:
