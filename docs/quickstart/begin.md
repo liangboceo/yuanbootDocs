@@ -1,6 +1,6 @@
 <img src="https://yuanboot.star2cloud.com/images/logo.png" width = "380px" height = "120px" alt="" align=center />[中文](https://github.com/liangboceo/yuanboot/blob/master/README.md)  / [English](https://github.com/liangboceo/yuanboot/blob/master/README_En.md)
 
-yuanboot 简单、轻量、快速、基于依赖注入的微服务框架
+yuanboot  简单、轻量、快速，基于申明式依赖注入的微服务框架，告别Java的臃肿架构
 
 * 文档： https://yuanboot.star2cloud.com
 
