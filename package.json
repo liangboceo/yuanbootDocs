@@ -1,0 +1,28 @@
+{
+  "name": "yuanbootDocs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy-gh": "npm run docs:build && bash deploy-gh.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liangboceo/yuanbootDocs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liangboceo/yuanbootDocs/issues"
+  },
+  "homepage": "https://github.com/liangboceo/yuanbootDocs#readme",
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  },
+  "dependencies": {
+    "vuepress-theme-default-prefers-color-scheme": "^2.0.0"
+  }
+}
