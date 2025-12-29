@@ -32,7 +32,7 @@ POST: /auth/token
 ```json
 { 
    "id":"22" , 
-   "name":"yoyo"  
+   "name":"yuanboot"  
 }
 ```
 
