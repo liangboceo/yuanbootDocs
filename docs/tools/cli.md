@@ -22,9 +22,14 @@ yuanbootctl new <TEMPLATE> [-l|--list] [-n <PROJECTNAME>] [-p <TARGETDIR>]
 ```
 ### --list
 list all templates
-#### TEMPLATE LIST
-console / webapi / mvc / grpc / xxl-job
-
+#### TEMPLATE LIST 模板列表
+iot / console / webapi / mvc / grpc / xxl-job
+##### iot 物联网模板
+##### console 控制台程序
+##### webapi api接口程序
+##### mvc 标准的mvc程序
+##### grpc grpc服务
+##### xxl-job xxl-job服务
 ### -n 
 generate folder by project name `<PROJECTNAME>`
 
