@@ -1,8 +1,8 @@
 <img src="https://yuanboot.star2cloud.com/images/logo.png" width = "380px" height = "120px" alt="" align=center />[中文](https://github.com/liangboceo/yuanboot/blob/master/README.md)  / [English](https://github.com/liangboceo/yuanboot/blob/master/README_En.md)
 
-yuanboot  简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构
+yuanboot  简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构。**AI Native 开发体验**，内置 API Spec 规范系统，让 AI 助手能够准确理解代码结构。
 
-* 文档： https://yuanboot.star2cloud.com
+🚀 **[AI 辅助编程指南](../ai-assist.md)** | **[CLI 工具](../tools/cli.md)** | **[框架规格文档](../tools/spec.md)**
 
 ![Release](https://img.shields.io/github/v/tag/liangboceo/yuanboot.svg?color=24B898&label=release&logo=github&sort=semver)
 ![Go](https://github.com/liangboceo/yuanboot/workflows/Go/badge.svg)
@@ -13,6 +13,7 @@ yuanboot  简单、轻量、快速，基于声明式依赖注入的微服务框�
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 # yuanboot 特色
+- 🤖 **AI 友好的开发范式**: 声明式依赖注入，结构化的 API Spec 定义，让 AI 助手能够准确理解代码
 - 漂亮又快速的路由器 & MVC 模式 .
 - 丰富的中间件支持 (handler func & custom middleware) .
 - 微服务框架抽象了分层，在一个框架体系兼容各种server实现，如 rest,grpc等 .

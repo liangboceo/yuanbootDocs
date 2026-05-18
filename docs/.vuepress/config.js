@@ -1,13 +1,13 @@
 module.exports = {
-    title: 'yuanboot-简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构',
-    description: '简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构',
+    title: 'yuanboot - AI Native 微服务框架，简单、轻量、快速，告别Java的臃肿架构',
+    description: '简单、轻量、快速，基于声明式依赖注入的微服务框架。AI Native 开发体验，声明式 API Spec 规范，让 AI 助手准确理解代码',
     base : '/',
     theme: 'default-prefers-color-scheme',
     markdown: {
       lineNumbers: false // 代码块显示行号
     },
      head: [
-      ['meta', {description:'简单、轻量、快速，基于声明式依赖注入的微服务框架，告别Java的臃肿架构'}],
+      ['meta', {description:'简单、轻量、快速，基于声明式依赖注入的微服务框架。AI Native 开发体验，声明式 API Spec 规范，让 AI 助手准确理解代码'}],
       ['link', { rel: 'icon', href: 'https://yuanboot.star2cloud.com/images/logo.png' }],
       ['script', {}, `
               var _hmt = _hmt || [];
@@ -112,17 +112,20 @@ module.exports = {
         },
         ['/logs/日志.md','服务日志'],
         {
-          title: '脚手架生成',
+          title: 'AI 辅助编程',
           collapsable: true,
           children: [
-              { title: 'yuanbootctl', path:'/tools/cli.md'},
-              { title: '邮件', path:'/tools/email.md'},
+              { title: 'AI 辅助编程指南', path:'/ai-assist.md'},
+              { title: 'yuanbootctl CLI', path:'/tools/cli.md'},
+              { title: '框架规格文档', path:'/tools/spec.md'},
+              { title: '邮件服务', path:'/tools/email.md'},
           ]
         },
       ],
       nav : [
           { text: '首页', link: '/' },
           { text: '文档', link: '/quickstart/begin.html' },
+          { text: 'AI 辅助编程', link: '/ai-assist.html' },
           { text: '源码', link: 'https://github.com/liangboceo/yuanboot' }
       ],
       
