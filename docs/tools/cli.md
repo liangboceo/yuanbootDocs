@@ -51,16 +51,17 @@ yuanbootctl new <TEMPLATE> [-n <PROJECTNAME>] [-p <TARGETDIR>]
 
 ### 可用模板
 
-| 模板 | 说明 | 适用场景 |
-|------|------|----------|
-| `console` | 控制台程序 | 后台任务、定时任务 |
-| `webapi` | API 接口程序 | RESTful API 服务 |
-| `mvc` | 标准 MVC 程序 | 传统 Web 应用 |
-| `grpc` | gRPC 服务 | 高性能 RPC 服务 |
-| `xxl-job` | 分布式任务调度 | 定时任务管理 |
-| `iot` | 物联网程序 | IoT 设备接入 |
-| `simpleweb` | 简单 Web 应用 | 快速原型开发 |
-| `microservice` | 微服务项目 | 微服务架构项目 |
+| 模板             | 说明        | 适用场景               |
+|----------------|-----------|--------------------|
+| `console`      | 控制台程序     | 后台任务、定时任务          |
+| `webapi`       | API 接口程序  | RESTful API 服务     |
+| `mvc`          | 标准 MVC 程序 | 传统 Web 应用          |
+| `grpc`         | gRPC 服务   | 高性能 RPC 服务         |
+| `xxl-job`      | 分布式任务调度   | 定时任务管理             |
+| `iot`          | 物联网程序     | IoT 设备接入           |
+| `simpleweb`    | 简单 Web 应用 | 快速原型开发             |
+| `microservice` | 微服务项目     | 微服务架构项目            |
+| `admin`        | 管理系统项目    | 包含前后端rbac完整的管理系统后台 |
 
 ### 示例
 
@@ -79,6 +80,12 @@ yuanbootctl new grpc -n mygrpc -p ~/projects
 
 # 创建微服务项目
 yuanbootctl new microservice -n myservice -p ~/projects
+
+# 创建物联网项目
+yuanbootctl new iot -n iot-link-biz-server -p ~/projects
+
+# 创建管理系统项目
+yuanbootctl new admin -n manage-system -p ~/projects
 ```
 
 ---
