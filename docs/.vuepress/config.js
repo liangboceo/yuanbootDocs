@@ -121,6 +121,14 @@ module.exports = {
               { title: '邮件服务', path:'/tools/email.md'},
           ]
         },
+        {
+          title: '部署方式',
+          collapsable: true,
+          children: [
+              { title: 'Docker 部署', path:'/deployment/docker.md'},
+              { title: '宿主机部署', path:'/deployment/host.md'},
+          ]
+        },
       ],
       nav : [
           { text: '首页', link: '/' },
@@ -128,7 +136,6 @@ module.exports = {
           { text: 'AI 辅助编程', link: '/ai-assist.html' },
           { text: '源码', link: 'https://github.com/liangboceo/yuanboot' }
       ],
-      
+
     }
   }
-  
