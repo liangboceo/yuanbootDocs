@@ -35,7 +35,7 @@ host = (
 ## 创建 Console 项目
 
 ```bash
-yuanbootctl-python new console -n worker --framework-ref v0.1.6
+yuanbootctl-python new console -n worker --framework-version 0.1.7
 cd worker
 python -m pip install -e '.[dev]'
 yuanbootctl-python run --profile pro
@@ -52,7 +52,7 @@ Ctrl+C 或 SIGTERM 触发宿主停止，随后取消后台任务并释放资源�
 `microservice` 模板已经包含 Web API 和后台 Worker：
 
 ```bash
-yuanbootctl-python new microservice -n inventory --framework-ref v0.1.6
+yuanbootctl-python new microservice -n inventory --framework-version 0.1.7
 ```
 
 也可以在现有 `WebHostBuilder` 的 `configure_services` 中调用 `add_hosted_service(Worker)`。

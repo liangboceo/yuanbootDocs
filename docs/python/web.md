@@ -90,3 +90,9 @@ def endpoints(router):
 
 令牌必须有有效签名和 `exp` 过期字段；缺失、过期或签名错误时返回 HTTP 401。
 `JWT_SECRET` 从部署环境提供。issuer 和 audience 可在 `JwtBearer` 构造时指定。
+
+## Swagger 元数据
+
+`/docs` 和 `/openapi.json` 默认展示 yuanboot-python 版本、版权、联系链接与 MIT 许可。
+业务自定义 `title`、`version`、`description`、`contact`、`license_info` 时，保留业务信息并在描述后附加框架版权说明。
+可通过 `docs_url=None, redoc_url=None, openapi_url=None` 关闭文档。

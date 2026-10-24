@@ -11,16 +11,16 @@
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot[all]==0.1.6'
+python -m pip install 'yuanboot[all]==0.1.7'
 yuanbootctl-python --version
 ```
 
 也可通过工具安装包获取同版本框架：
 
 ```bash
-python -m pip install yuanbootctl-python==0.1.6
+python -m pip install yuanbootctl-python==0.1.7
 # 工具与全部标准组件：
-python -m pip install 'yuanbootctl-python[all]==0.1.6'
+python -m pip install 'yuanbootctl-python[all]==0.1.7'
 ```
 
 | PyPI 包 | 内容 |
@@ -34,8 +34,8 @@ python -m pip install 'yuanbootctl-python[all]==0.1.6'
 ## 按需安装组件
 
 ```bash
-python -m pip install 'yuanboot[mysql,redis,nacos]==0.1.6'
-python -m pip install 'yuanboot[all]==0.1.6'
+python -m pip install 'yuanboot[mysql,redis,nacos]==0.1.7'
+python -m pip install 'yuanboot[all]==0.1.7'
 ```
 
 可选组件包括 `mysql / redis / nacos / apollo / discovery / http / jwt / scheduler / grpc / xxljob`。
@@ -46,17 +46,18 @@ python -m pip install 'yuanboot[all]==0.1.6'
 需要本机安装 Git：
 
 ```bash
-python -m pip install 'yuanboot[all] @ git+https://github.com/liangboceo/yuanboot-python.git@v0.1.6'
+python -m pip install 'yuanboot[all] @ git+https://github.com/liangboceo/yuanboot-python.git@v0.1.7'
 ```
 
 Git tag 保持不可变，业务项目仍可按此方式管理框架依赖。
 
 ## 在业务项目中固定版本
 
-模板默认在 `pyproject.toml` 中使用 Git tag。创建时可显式指定：
+模板默认在 `pyproject.toml` 中使用公开 PyPI 的精确版本，读取工具内置的框架版本。
+升级工具后新生成项目使用新版本，已有业务项目保留原版本。创建时也可显式指定：
 
 ```bash
-yuanbootctl-python new webapi -n orders --framework-ref v0.1.6
+yuanbootctl-python new webapi -n orders --framework-version 0.1.7
 ```
 
 ```toml
@@ -64,17 +65,18 @@ yuanbootctl-python new webapi -n orders --framework-ref v0.1.6
 name = "orders"
 version = "0.1.0"
 dependencies = [
-  "yuanboot @ git+https://github.com/liangboceo/yuanboot-python.git@v0.1.6",
+  "yuanboot==0.1.7",
 ]
 
 [project.optional-dependencies]
 components = [
-  "yuanboot[all] @ git+https://github.com/liangboceo/yuanboot-python.git@v0.1.6",
+  "yuanboot[all]==0.1.7",
 ]
 ```
 
-如需全部使用 PyPI，将上述依赖分别改成 `yuanboot==0.1.6` 和 `yuanboot[all]==0.1.6`；
-gRPC 项目的基础依赖使用 `yuanboot[grpc]==0.1.6`。
+gRPC 项目的基础依赖使用 `yuanboot[grpc]==0.1.7`。
+显式指定 `--framework-ref v0.1.7` 或 `--framework-repo` 可切换为 Git 依赖，安装时需要 Git。
+PyPI 的 `--framework-version` 与这两个 Git 选项不能混用。
 业务项目版本与框架版本分别维护，同一个业务项目中的框架依赖应保持一致。
 
 ## 升级框架
@@ -98,7 +100,7 @@ uv sync --frozen --extra components
 
 维护者通过 GitHub **Actions → Build Release → Run workflow** 发布：
 
-1. 选择 `master`，填写 `version`，例如 `0.1.6`，不带 `v`。
+1. 选择 `master`，填写 `version`，例如 `0.1.7`，不带 `v`。
 2. 正式发布选择 `draft=false`；按需要选择是否为 prerelease。
 3. 工作流检查 Python 3.11–3.14，构建两个包及五个平台的独立可执行文件。
 4. 全部通过后创建不可变的 `v<version>` tag，上传 GitHub Release 和 `SHA256SUMS`。

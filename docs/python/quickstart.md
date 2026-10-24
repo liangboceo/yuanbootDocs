@@ -9,19 +9,19 @@ mkdir yuanboot-workspace
 cd yuanboot-workspace
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install yuanbootctl-python==0.1.6
+python -m pip install yuanbootctl-python==0.1.7
 yuanbootctl-python --version
 ```
 
 Windows PowerShell 使用 `.venv\Scripts\Activate.ps1` 激活环境。
 命令名为 `yuanbootctl-python`，也可通过 `python -m yuanboot.cli` 调用当前 Python 环境中的工具。
-默认生成的项目通过 Git tag 固定框架依赖，因此安装业务依赖时需要 Git；
-也可改为同版本的 PyPI 依赖，见[版本与安装](versions.md)。
+默认生成的项目从公开 PyPI 安装框架，版本与生成工具内置的框架版本一致，安装默认模板无需 Git。
+升级工具后新生成项目使用新版本，已创建项目保留原固定版本，见[版本与安装](versions.md)。
 
 ## 创建项目
 
 ```bash
-yuanbootctl-python new webapi -n orders --framework-ref v0.1.6
+yuanbootctl-python new webapi -n orders --framework-version 0.1.7
 cd orders
 python -m pip install -e '.[dev]'
 yuanbootctl-python run --profile dev --reload

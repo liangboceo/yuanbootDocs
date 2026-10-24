@@ -33,7 +33,7 @@ EXPOSE 8080
 CMD ["python", "-m", "yuanboot.cli", "run"]
 ```
 
-Git 用于安装项目中通过 HTTPS Git tag 引用的框架依赖。
+默认模板从 PyPI 安装框架，无需 Git。显式切换为 Git 依赖时，需要自行在镜像中安装 Git。
 模板的 `components` 安装全部标准组件；项目按需调整该可选依赖后，镜像也会使用相同依赖。
 
 创建 `.dockerignore`，避免把本地环境和运行数据带入镜像：

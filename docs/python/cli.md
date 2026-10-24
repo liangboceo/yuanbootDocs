@@ -10,7 +10,7 @@ yuanbootctl-python version
 从公开 PyPI 安装：
 
 ```bash
-python -m pip install yuanbootctl-python==0.1.6
+python -m pip install yuanbootctl-python==0.1.7
 ```
 
 工具安装包自动依赖同版本的 `yuanboot`，命令入口和模板资源由框架提供。
@@ -31,7 +31,7 @@ python -m pip install yuanbootctl-python==0.1.6
 例如 Linux amd64：
 
 ```bash
-VERSION=0.1.6
+VERSION=0.1.7
 curl -fLO "https://github.com/liangboceo/yuanboot-python/releases/download/v${VERSION}/yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 tar -xzf "yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 ./yuanbootctl-python new webapi -n orders
@@ -62,8 +62,9 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 | `--list`、`-l` | 列出可用模板 |
 | `--name`、`-n` | 项目名称，默认 `demo` |
 | `--path`、`-p` | 输出目录，默认当前目录 |
-| `--framework-ref` | 生成项目使用的框架 tag，默认与工具版本一致 |
-| `--framework-repo` | 框架 Git 仓库，默认 Python 框架仓库 |
+| `--framework-version` | PyPI 版本，默认读取工具内置的框架版本 |
+| `--framework-ref` | 显式切换为 Git 依赖并指定 ref |
+| `--framework-repo` | 显式切换为 Git 依赖并指定仓库 |
 
 | 模板 | 用途 |
 | --- | --- |
@@ -76,9 +77,9 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 
 ```bash
 yuanbootctl-python new --list
-yuanbootctl-python new webapi -n orders --framework-ref v0.1.6
-yuanbootctl-python new mvc -n portal --framework-ref v0.1.6
-yuanbootctl-python new grpc -n inventory --framework-ref v0.1.6
+yuanbootctl-python new webapi -n orders --framework-version 0.1.7
+yuanbootctl-python new mvc -n portal --framework-version 0.1.7
+yuanbootctl-python new grpc -n inventory --framework-version 0.1.7
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。

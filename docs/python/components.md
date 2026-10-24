@@ -36,7 +36,7 @@ yuanboot:
     file: ./logs/application.log
     max_bytes: 10485760
     backup_count: 5
-    levels:
+    loggers:
       sqlalchemy.engine: WARNING
   datasource:
     mysql:
@@ -229,3 +229,5 @@ XXL 配置在 `yuanboot.application.xxl`：`admin_url`、`access_token`、`regis
 监听端口由当前 WebHost 管理。
 支持 `/xxl-job/beat`、idleBeat、run、kill、log，支持 BEAN 分片参数、日志与结果回调。
 正在执行同 jobId 时返回 busy；回调只在内存重试，进程退出/崩溃不保证补发；生产接入需按场景补持久化策略。
+
+日志默认启用，支持 zap / logrus 文本和 JSON，配置与版权信息见[日志与可观测性](observability.md)。
