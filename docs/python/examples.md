@@ -62,10 +62,10 @@ curl -X POST http://127.0.0.1:8080/api/greet \
 ## 使用 MVC 模板
 
 ```bash
-python -m yuanboot.cli new mvc -n portal --framework-ref v0.1.2
+yuanbootctl-python new mvc -n portal --framework-ref v0.1.6
 cd portal
 python -m pip install -e '.[dev]'
-python -m yuanboot.cli run --reload
+yuanbootctl-python run --reload
 ```
 
 模板将上面的业务拆分为 `controllers.py` 中的控制器和服务，

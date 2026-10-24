@@ -3,10 +3,10 @@
 ## 创建与运行
 
 ```bash
-python -m yuanboot.cli new grpc -n inventory --framework-ref v0.1.2
+yuanbootctl-python new grpc -n inventory --framework-ref v0.1.6
 cd inventory
 python -m pip install -e '.[dev]'
-python -m yuanboot.cli run --profile dev
+yuanbootctl-python run --profile dev
 ```
 
 `grpc` 模板自动声明 `yuanboot[grpc]` 依赖，默认监听 `127.0.0.1:9090`。
@@ -25,7 +25,7 @@ yuanboot:
     shutdown_grace: 5
 ```
 
-启动时使用 `python -m yuanboot.cli run --profile pro`。
+启动时使用 `yuanbootctl-python run --profile pro`。
 Web 的 `--port` 不用于修改 gRPC 端口，gRPC 监听地址以 `yuanboot.grpc.address` 为准。
 
 ## 注册服务

@@ -3,10 +3,10 @@
 ## 创建 MVC 项目
 
 ```bash
-python -m yuanboot.cli new mvc -n portal --framework-ref v0.1.2
+yuanbootctl-python new mvc -n portal --framework-ref v0.1.6
 cd portal
 python -m pip install -e '.[dev]'
-python -m yuanboot.cli run --reload
+yuanbootctl-python run --reload
 ```
 
 访问 `http://127.0.0.1:8080/` 查看 Jinja2 页面，访问 `/docs` 调试控制器接口。

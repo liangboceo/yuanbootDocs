@@ -77,7 +77,7 @@ WorkingDirectory=/opt/orders
 Environment=PYTHONUNBUFFERED=1
 Environment=YUANBOOT_PROFILE=pro
 EnvironmentFile=-/etc/orders.env
-ExecStart=/opt/orders/.venv/bin/python -m yuanboot.cli run --profile pro --workers 2
+ExecStart=/opt/orders/.venv/bin/yuanbootctl-python run --profile pro --workers 2
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=30
@@ -127,7 +127,7 @@ sudo systemctl status orders
 Console 和 gRPC 服务将 `ExecStart` 改为：
 
 ```ini
-ExecStart=/opt/orders/.venv/bin/python -m yuanboot.cli run --profile pro
+ExecStart=/opt/orders/.venv/bin/yuanbootctl-python run --profile pro
 ```
 
 这两类项目通过 `pyproject.toml` 的 Console 入口启动，不使用 Web 的 `--workers` 参数。

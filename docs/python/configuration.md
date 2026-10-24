@@ -56,10 +56,10 @@ config_pro.yml
 启动命令在项目目录执行，使配置文件与 CLI 的工作目录一致：
 
 ```bash
-python -m yuanboot.cli run --profile dev
-python -m yuanboot.cli run --profile fat
-python -m yuanboot.cli run --profile uat
-python -m yuanboot.cli run --profile pro
+yuanbootctl-python run --profile dev
+yuanbootctl-python run --profile fat
+yuanbootctl-python run --profile uat
+yuanbootctl-python run --profile pro
 ```
 
 也可设置 `YUANBOOT_PROFILE=pro`；显式 `--profile` 优先于环境变量。

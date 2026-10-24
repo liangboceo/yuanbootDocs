@@ -2,26 +2,29 @@
 
 ## 环境准备
 
-安装 Python 3.11+ 和 Git。在新目录创建虚拟环境：
+安装 Python 3.11+，使用公开 PyPI 安装工具。在新目录创建虚拟环境：
 
 ```bash
 mkdir yuanboot-workspace
 cd yuanboot-workspace
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot @ git+https://github.com/liangboceo/yuanboot-python.git@v0.1.2'
+python -m pip install yuanbootctl-python==0.1.6
+yuanbootctl-python --version
 ```
 
 Windows PowerShell 使用 `.venv\Scripts\Activate.ps1` 激活环境。
-下文统一使用 `python -m yuanboot.cli` 调用 Python 工具，不依赖命令是否已加入 PATH，也避免与 Go 的 `yuanbootctl` 混用。
+命令名为 `yuanbootctl-python`，也可通过 `python -m yuanboot.cli` 调用当前 Python 环境中的工具。
+默认生成的项目通过 Git tag 固定框架依赖，因此安装业务依赖时需要 Git；
+也可改为同版本的 PyPI 依赖，见[版本与安装](versions.md)。
 
 ## 创建项目
 
 ```bash
-python -m yuanboot.cli new webapi -n orders --framework-ref v0.1.2
+yuanbootctl-python new webapi -n orders --framework-ref v0.1.6
 cd orders
 python -m pip install -e '.[dev]'
-python -m yuanboot.cli run --profile dev --reload
+yuanbootctl-python run --profile dev --reload
 ```
 
 访问：
@@ -46,6 +49,11 @@ orders/
 ├── config_fat.yml       # 测试环境
 ├── config_uat.yml       # 验收环境
 ├── config_pro.yml       # 生产环境
+├── README.md            # 项目说明与文档入口
+├── spec/
+│   ├── yuanboot-python.md
+│   ├── components.md
+│   └── backend-module-development.md
 ├── pyproject.toml       # 业务版本、依赖和运行入口
 ├── Dockerfile
 └── docker-compose.yml
@@ -66,7 +74,7 @@ greeting:
 指定环境和端口：
 
 ```bash
-python -m yuanboot.cli run --profile fat --port 9000
+yuanbootctl-python run --profile fat --port 9000
 ```
 
 配置支持 `dev / fat / uat / pro`，默认 `dev`。

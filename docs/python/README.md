@@ -4,6 +4,8 @@
 通过统一宿主管理 Web API、MVC、gRPC 和后台服务，为业务项目提供配置、数据访问、服务发现和可观测性。
 
 [![Release](https://img.shields.io/github/v/tag/liangboceo/yuanboot-python?color=24B898&label=release&logo=github&sort=semver)](https://github.com/liangboceo/yuanboot-python/tags)
+[![PyPI](https://img.shields.io/pypi/v/yuanboot?label=yuanboot)](https://pypi.org/project/yuanboot/)
+[![CLI](https://img.shields.io/pypi/v/yuanbootctl-python?label=yuanbootctl-python)](https://pypi.org/project/yuanbootctl-python/)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/github/license/liangboceo/yuanboot-python)](https://github.com/liangboceo/yuanboot-python/blob/master/LICENSE)
 
@@ -36,10 +38,13 @@ Web 使用 FastAPI / Uvicorn，gRPC 使用 grpc.aio，后台任务使用 Console
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot @ git+https://github.com/liangboceo/yuanboot-python.git@v0.1.2'
+python -m pip install 'yuanboot[all]==0.1.6'
+yuanbootctl-python --version
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\Activate.ps1`。组件按需安装，见[版本与安装](versions.md)。
+也可安装 `yuanbootctl-python==0.1.6` 自动获取同版本框架和项目命令；
+无需 Python 的独立可执行文件见[CLI 工具](cli.md#独立可执行文件)。
 
 ## 简单示例
 

@@ -6,9 +6,11 @@
 
 - Python 3.11+，Web 基于 FastAPI / Uvicorn，gRPC 基于 grpc.aio。
 - 业务依赖在 `pyproject.toml` 中声明，入口由 `[tool.yuanboot]` 指定。
-- CLI 使用 `python -m yuanboot.cli`，支持 `new / run / build / version`。
+- CLI 使用 `yuanbootctl-python`，支持 `new / run / build / version`。
 - 模板包括 `simpleweb / webapi / mvc / microservice / console / grpc`。
-- 创建业务项目可指定 `--framework-ref v0.1.2`，使依赖固定到相应框架版本。
+- 创建业务项目可指定 `--framework-ref v0.1.6`，使依赖固定到相应框架版本。
+- 所有模板默认提供 README 和 `spec/yuanboot-python.md`、`spec/components.md`、`spec/backend-module-development.md`，可作为离线开发文档。
+- 公开 PyPI 提供 `yuanboot` 和 `yuanbootctl-python`，两者保持同一版本；也可使用 Git tag 依赖。
 
 详见[快速上手](quickstart.md)、[项目入口](architecture.md#项目入口)与[CLI 工具](cli.md)。
 

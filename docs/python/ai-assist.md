@@ -140,10 +140,10 @@ yuanboot:
 先完成[框架安装](versions.md)，再执行：
 
 ```bash
-python -m yuanboot.cli new mvc -n userservice --framework-ref v0.1.2
+yuanbootctl-python new mvc -n userservice --framework-ref v0.1.6
 cd userservice
 python -m pip install -e '.[dev]'
-python -m yuanboot.cli run --profile dev --reload
+yuanbootctl-python run --profile dev --reload
 ```
 
 Web API 可选 `webapi`，后台任务可选 `console`，RPC 服务可选 `grpc`。命令和参数见[CLI 工具](cli.md)。
