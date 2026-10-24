@@ -21,7 +21,7 @@
 ## 统一日志与启动信息
 
 宿主默认启用日志，业务 `logging.getLogger(__name__)`、框架和服务器日志使用统一配置。
-启动时输出 yuanboot-python 版本、版权、MIT 许可、应用名、PID 和运行环境。
+启动时输出 yuanboot-python 版本、`Copyright (c) 2026 jackson liang`、MIT 许可、应用名、PID 和运行环境。
 文本日志默认 `log_type: zap`，可选 `logrus`；`json: true` 切换到结构化 JSON。
 
 ```yaml
