@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="790" viewBox="0 0 1120 790" role="img" aria-labelledby="title desc">
+<title id="title">yuanboot Python 框架架构</title>
+<desc id="desc">业务 API、控制器与后台任务运行在 Web、gRPC 或 Console 宿主上，共享配置、依赖注入和生命周期，并使用数据库、缓存、服务发现及任务组件。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#68b994"/></marker></defs>
+<rect x="1" y="1" width="1118" height="788" rx="12" fill="#252729" stroke="#51575a"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#e8eceb;font-size:22px}.sub{fill:#bac7c2;font-size:20px}.layer{fill:#74d3aa;font-size:20px;font-weight:600}.box{fill:#303a36;stroke:#62796e;stroke-width:1.4}.host{fill:#293638;stroke:#597778;stroke-width:1.4}.shared{fill:#303438;stroke:#626e75;stroke-width:1.4}.arrow{stroke:#68b994;stroke-width:2;fill:none;marker-end:url(#arrow)}</style>
+<text x="34" y="45" class="layer" text-anchor="start">yuanboot Python</text>
+<text x="1086" y="45" class="sub" text-anchor="end">业务开发 · 服务宿主 · 基础能力</text>
+<text x="34" y="92" class="layer" text-anchor="start">业务应用</text>
+<rect x="34" y="110" width="334" height="91" rx="7" class="box"/>
+<text x="201.0" y="144" class="" text-anchor="middle">HTTP API / MVC</text>
+<text x="201.0" y="175" class="sub" text-anchor="middle">路由、控制器、请求模型与视图</text>
+<rect x="393" y="110" width="334" height="91" rx="7" class="box"/>
+<text x="560.0" y="144" class="" text-anchor="middle">RPC 服务</text>
+<text x="560.0" y="175" class="sub" text-anchor="middle">protobuf 接口与业务处理器</text>
+<rect x="752" y="110" width="334" height="91" rx="7" class="box"/>
+<text x="919.0" y="144" class="" text-anchor="middle">后台任务</text>
+<text x="919.0" y="175" class="sub" text-anchor="middle">Worker、定时任务与作业处理</text>
+<path d="M201 204 L201 245" class="arrow"/>
+<path d="M560 204 L560 245" class="arrow"/>
+<path d="M919 204 L919 245" class="arrow"/>
+<text x="34" y="235" class="layer" text-anchor="start">服务宿主</text>
+<rect x="34" y="253" width="334" height="93" rx="7" class="host"/>
+<text x="201.0" y="287" class="" text-anchor="middle">WebHostBuilder</text>
+<text x="201.0" y="318" class="sub" text-anchor="middle">FastAPI + Uvicorn</text>
+<rect x="393" y="253" width="334" height="93" rx="7" class="host"/>
+<text x="560.0" y="287" class="" text-anchor="middle">GrpcHostBuilder</text>
+<text x="560.0" y="318" class="sub" text-anchor="middle">grpc.aio</text>
+<rect x="752" y="253" width="334" height="93" rx="7" class="host"/>
+<text x="919.0" y="287" class="" text-anchor="middle">HostBuilder / Console</text>
+<text x="919.0" y="318" class="sub" text-anchor="middle">asyncio + HostedService</text>
+<path d="M201 350 L201 391" class="arrow"/>
+<path d="M560 350 L560 391" class="arrow"/>
+<path d="M919 350 L919 391" class="arrow"/>
+<text x="34" y="382" class="layer" text-anchor="start">共享运行基础</text>
+<rect x="34" y="400" width="334" height="96" rx="7" class="shared"/>
+<text x="201.0" y="434" class="" text-anchor="middle">Configuration</text>
+<text x="201.0" y="465" class="sub" text-anchor="middle">YAML / JSON / 环境变量 / 远程源</text>
+<rect x="393" y="400" width="334" height="96" rx="7" class="shared"/>
+<text x="560.0" y="434" class="" text-anchor="middle">Dependency Injection</text>
+<text x="560.0" y="465" class="sub" text-anchor="middle">Singleton / Scoped / Transient</text>
+<rect x="752" y="400" width="334" height="96" rx="7" class="shared"/>
+<text x="919.0" y="434" class="" text-anchor="middle">Host Lifecycle</text>
+<text x="919.0" y="465" class="sub" text-anchor="middle">启动、就绪、停止与资源释放</text>
+<path d="M560 500 L560 548" class="arrow"/>
+<text x="34" y="539" class="layer" text-anchor="start">基础组件</text>
+<rect x="34" y="557" width="334" height="91" rx="7" class="box"/>
+<text x="201.0" y="591" class="" text-anchor="middle">数据与缓存</text>
+<text x="201.0" y="622" class="sub" text-anchor="middle">MySQL / SQLAlchemy / Redis</text>
+<rect x="393" y="557" width="334" height="91" rx="7" class="box"/>
+<text x="560.0" y="591" class="" text-anchor="middle">配置与服务治理</text>
+<text x="560.0" y="622" class="sub" text-anchor="middle">Nacos / Apollo / 服务发现</text>
+<rect x="752" y="557" width="334" height="91" rx="7" class="box"/>
+<text x="919.0" y="591" class="" text-anchor="middle">通信与任务</text>
+<text x="919.0" y="622" class="sub" text-anchor="middle">HTTP / SMTP / Scheduler / XXL-Job</text>
+<rect x="34" y="676" width="1052" height="77" rx="7" class="shared"/>
+<text x="560" y="707" class="" text-anchor="middle">日志与可观测性</text>
+<text x="560" y="734" class="sub" text-anchor="middle">logging / Request ID / Health / Prometheus</text>
+</svg>

@@ -1,3 +1,17 @@
 .content {
   font-size 30px
 }
+
+// Reserve space for the framework selector and keep the full site title in metadata.
+@media (min-width: 960px)
+  .navbar .site-name
+    max-width calc(100vw - 52rem)
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
+
+@media (min-width: 720px) and (max-width: 959px)
+  .navbar .site-name
+    display none
+  .navbar .search-box input
+    width 6rem
