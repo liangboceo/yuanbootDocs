@@ -38,12 +38,12 @@ Web 使用 FastAPI / Uvicorn，gRPC 使用 grpc.aio，后台任务使用 Console
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot[all]==0.1.7'
+python -m pip install 'yuanboot[all]==0.1.8'
 yuanbootctl-python --version
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\Activate.ps1`。组件按需安装，见[版本与安装](versions.md)。
-也可安装 `yuanbootctl-python==0.1.7` 自动获取同版本框架和项目命令；
+也可安装 `yuanbootctl-python==0.1.8` 自动获取同版本框架和项目命令；
 无需 Python 的独立可执行文件见[CLI 工具](cli.md#独立可执行文件)。
 
 ## 简单示例

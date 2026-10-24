@@ -10,7 +10,7 @@ yuanbootctl-python version
 从公开 PyPI 安装：
 
 ```bash
-python -m pip install yuanbootctl-python==0.1.7
+python -m pip install yuanbootctl-python==0.1.8
 ```
 
 工具安装包自动依赖同版本的 `yuanboot`，命令入口和模板资源由框架提供。
@@ -31,7 +31,7 @@ python -m pip install yuanbootctl-python==0.1.7
 例如 Linux amd64：
 
 ```bash
-VERSION=0.1.7
+VERSION=0.1.8
 curl -fLO "https://github.com/liangboceo/yuanboot-python/releases/download/v${VERSION}/yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 tar -xzf "yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 ./yuanbootctl-python new webapi -n orders
@@ -77,9 +77,9 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 
 ```bash
 yuanbootctl-python new --list
-yuanbootctl-python new webapi -n orders --framework-version 0.1.7
-yuanbootctl-python new mvc -n portal --framework-version 0.1.7
-yuanbootctl-python new grpc -n inventory --framework-version 0.1.7
+yuanbootctl-python new webapi -n orders --framework-version 0.1.8
+yuanbootctl-python new mvc -n portal --framework-version 0.1.8
+yuanbootctl-python new grpc -n inventory --framework-version 0.1.8
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。
@@ -157,3 +157,5 @@ yuanbootctl-python --version
 
 框架版本的选择和升级见[版本与安装](versions.md)。
 GitHub Release/tag 与 PyPI 的自动发布流程也见该页面。
+
+0.1.8 起，六类模板均包含根目录 `main.py` 和 PyCharm 模块调试配置 `.run/yuanboot.run.xml`，详见[PyCharm 调试与直接运行](quickstart.md#pycharm-调试与直接运行)。

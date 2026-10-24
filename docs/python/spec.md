@@ -8,7 +8,7 @@
 - 业务依赖在 `pyproject.toml` 中声明，入口由 `[tool.yuanboot]` 指定。
 - CLI 使用 `yuanbootctl-python`，支持 `new / run / build / version`。
 - 模板包括 `simpleweb / webapi / mvc / microservice / console / grpc`。
-- 创建业务项目默认固定到工具内置框架版本，可用 `--framework-version 0.1.7` 指定其他 PyPI 版本。
+- 创建业务项目默认固定到工具内置框架版本，可用 `--framework-version 0.1.8` 指定其他 PyPI 版本。
 - 所有模板默认提供 README 和 `spec/yuanboot-python.md`、`spec/components.md`、`spec/backend-module-development.md`，可作为离线开发文档。
 - 公开 PyPI 提供 `yuanboot` 和 `yuanbootctl-python`，两者保持同一版本；也可使用 Git tag 依赖。
 
