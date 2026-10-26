@@ -1,8 +1,8 @@
 # 版本、安装与发布
 
 [![Release](https://img.shields.io/github/v/tag/liangboceo/yuanboot-python?color=24B898&label=release&logo=github&sort=semver)](https://github.com/liangboceo/yuanboot-python/releases)
-[![PyPI](https://img.shields.io/pypi/v/yuanboot?label=yuanboot)](https://pypi.org/project/yuanboot/)
-[![CLI](https://img.shields.io/pypi/v/yuanbootctl-python?label=yuanbootctl-python)](https://pypi.org/project/yuanbootctl-python/)
+[![PyPI](https://img.shields.io/pypi/v/yuanboot?label=yuanboot&cacheSeconds=300)](https://pypi.org/project/yuanboot/)
+[![CLI](https://img.shields.io/pypi/v/yuanbootctl-python?label=yuanbootctl-python&cacheSeconds=300)](https://pypi.org/project/yuanbootctl-python/)
 
 框架提供公开 PyPI 包、Git tag 依赖和独立命令行可执行文件，Python 包需要 Python 3.11+。
 
