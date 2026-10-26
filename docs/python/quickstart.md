@@ -9,7 +9,7 @@ mkdir yuanboot-workspace
 cd yuanboot-workspace
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install yuanbootctl-python==0.1.9
+python -m pip install yuanbootctl-python==0.2.0
 yuanbootctl-python --version
 ```
 
@@ -21,7 +21,7 @@ Windows PowerShell 使用 `.venv\Scripts\Activate.ps1` 激活环境。
 ## 创建项目
 
 ```bash
-yuanbootctl-python new webapi -n orders --framework-version 0.1.9
+yuanbootctl-python new webapi -n orders --framework-version 0.2.0
 cd orders
 python -m pip install -e '.[dev]'
 yuanbootctl-python run --profile dev --reload

@@ -10,7 +10,7 @@ yuanbootctl-python version
 从公开 PyPI 安装：
 
 ```bash
-python -m pip install yuanbootctl-python==0.1.9
+python -m pip install yuanbootctl-python==0.2.0
 ```
 
 工具安装包自动依赖同版本的 `yuanboot`，命令入口和模板资源由框架提供。
@@ -31,7 +31,7 @@ python -m pip install yuanbootctl-python==0.1.9
 例如 Linux amd64：
 
 ```bash
-VERSION=0.1.9
+VERSION=0.2.0
 curl -fLO "https://github.com/liangboceo/yuanboot-python/releases/download/v${VERSION}/yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 tar -xzf "yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 ./yuanbootctl-python new webapi -n orders
@@ -74,16 +74,17 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 | `microservice` | Web API 与后台任务 |
 | `console` | Console 宿主与后台服务 |
 | `grpc` | gRPC 服务与健康检查 |
+| `admin` | 管理后台前端与 Python 权限 API |
 
 ```bash
 yuanbootctl-python new --list
-yuanbootctl-python new webapi -n orders --framework-version 0.1.9
-yuanbootctl-python new mvc -n portal --framework-version 0.1.9
-yuanbootctl-python new grpc -n inventory --framework-version 0.1.9
+yuanbootctl-python new webapi -n orders --framework-version 0.2.0
+yuanbootctl-python new mvc -n portal --framework-version 0.2.0
+yuanbootctl-python new grpc -n inventory --framework-version 0.2.0
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。
-六种模板都默认生成 `README.md` 和 `spec`：
+七种模板都默认生成 `README.md` 和 `spec`：
 
 ```text
 README.md
@@ -94,6 +95,10 @@ spec/
 ```
 
 README 包含启动命令与文档入口，spec 包含框架说明、核心组件和后端模块开发规范。
+
+`admin` 额外生成 `<项目名>-server`、`<项目名>-web` 两个目录，以及 `spec/admin.md`。
+在 server 目录安装依赖并运行后端，在 web 目录运行 `pnpm install --frozen-lockfile && pnpm dev`。
+完整说明见[管理后台模板](admin.md)。
 
 ## run — 运行项目
 

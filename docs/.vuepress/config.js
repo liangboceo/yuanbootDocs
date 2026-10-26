@@ -65,6 +65,7 @@ module.exports = {
           ['quickstart.md', '快速预览'],
           ['architecture.md', '基本概念'],
           ['examples.md', '代码展示'],
+          ['admin.md', '管理后台模板'],
           {
             title: '服务配置',
             collapsable: true,

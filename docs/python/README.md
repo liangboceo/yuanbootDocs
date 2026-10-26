@@ -21,7 +21,9 @@
 - YAML / JSON、多环境配置、环境变量、Nacos / Apollo 配置中心。
 - MySQL、Redis、服务注册与发现、HTTP 客户端与任务调度。
 - 结构化日志、Request ID、健康检查、Prometheus 和 JWT。
-- 六类项目模板，支持创建、运行和构建业务项目。
+- 七类项目模板（含 Admin 管理后台），支持创建、运行和构建业务项目。
+
+[创建管理后台 →](admin.md)：用户、角色、菜单、部门、系统配置，Vue 3 前端与 Python 权限 API。
 
 ## 框架架构
 
@@ -40,12 +42,12 @@ Web 使用 FastAPI / Uvicorn，gRPC 使用 grpc.aio，后台任务使用 Console
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot[all]==0.1.9'
+python -m pip install 'yuanboot[all]==0.2.0'
 yuanbootctl-python --version
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\Activate.ps1`。组件按需安装，见[版本与安装](versions.md)。
-也可安装 `yuanbootctl-python==0.1.9` 自动获取同版本框架和项目命令；
+也可安装 `yuanbootctl-python==0.2.0` 自动获取同版本框架和项目命令；
 无需 Python 的独立可执行文件见[CLI 工具](cli.md#独立可执行文件)。
 
 ## 简单示例

@@ -3,7 +3,7 @@
 ## 创建与运行
 
 ```bash
-yuanbootctl-python new grpc -n inventory --framework-version 0.1.9
+yuanbootctl-python new grpc -n inventory --framework-version 0.2.0
 cd inventory
 python -m pip install -e '.[dev]'
 yuanbootctl-python run --profile dev
