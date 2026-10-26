@@ -10,7 +10,7 @@ yuanbootctl-python version
 从公开 PyPI 安装：
 
 ```bash
-python -m pip install yuanbootctl-python==0.1.8
+python -m pip install yuanbootctl-python==0.1.9
 ```
 
 工具安装包自动依赖同版本的 `yuanboot`，命令入口和模板资源由框架提供。
@@ -31,7 +31,7 @@ python -m pip install yuanbootctl-python==0.1.8
 例如 Linux amd64：
 
 ```bash
-VERSION=0.1.8
+VERSION=0.1.9
 curl -fLO "https://github.com/liangboceo/yuanboot-python/releases/download/v${VERSION}/yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 tar -xzf "yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 ./yuanbootctl-python new webapi -n orders
@@ -77,9 +77,9 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 
 ```bash
 yuanbootctl-python new --list
-yuanbootctl-python new webapi -n orders --framework-version 0.1.8
-yuanbootctl-python new mvc -n portal --framework-version 0.1.8
-yuanbootctl-python new grpc -n inventory --framework-version 0.1.8
+yuanbootctl-python new webapi -n orders --framework-version 0.1.9
+yuanbootctl-python new mvc -n portal --framework-version 0.1.9
+yuanbootctl-python new grpc -n inventory --framework-version 0.1.9
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。
