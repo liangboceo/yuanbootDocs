@@ -82,6 +82,7 @@ yuanbootctl-python new --list
 yuanbootctl-python new webapi -n orders --framework-version 0.3.3
 yuanbootctl-python new mvc -n portal --framework-version 0.3.3
 yuanbootctl-python new grpc -n inventory --framework-version 0.3.3
+yuanbootctl-python new admin -n my-admin --framework-version 0.3.3
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。
@@ -100,6 +101,28 @@ README 包含启动命令与文档入口，spec 包含框架说明、核心组�
 `admin` 额外生成 `<项目名>-server`、`<项目名>-web` 两个目录，以及 `spec/admin.md`。
 在 server 目录安装依赖并运行后端，在 web 目录运行 `pnpm install --frozen-lockfile && pnpm dev`。
 完整说明见[管理后台模板](admin.md)。
+
+### Admin 创建示例
+
+```bash
+yuanbootctl-python new admin -n my-admin
+cd my-admin
+yuanbootctl-python install
+yuanbootctl-python run
+```
+
+`new admin` 会生成 `my-admin-server`、`my-admin-web`、`README.md` 和 `spec/`。
+后端命令从 Admin 根目录执行，CLI 会自动选择 `my-admin-server`；前端另开终端执行：
+
+```bash
+cd my-admin-web
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+也可以使用 `yuanbootctl-python new admin -n my-admin --install` 在创建时安装后端运行依赖。
+Windows 将命令替换为 `yuanbootctl-python.exe`。后台地址为 `http://127.0.0.1:8848/`，
+默认账号 `admin`，初始密码 `admin123`。
 
 ## install — 安装依赖
 

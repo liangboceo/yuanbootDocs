@@ -35,6 +35,38 @@ yuanbootctl-python run --profile dev --reload
 
 `--reload` 用于本地开发，部署时关闭它。Ctrl+C 停止服务并释放宿主管理的资源。
 
+## 创建 Admin 模板
+
+使用 `yuanbootctl-python` 可以直接生成带 Vue 管理前端和 Python 后端的 Admin 项目：
+
+```bash
+mkdir yuanboot-admin-workspace
+cd yuanboot-admin-workspace
+yuanbootctl-python new admin -n my-admin
+cd my-admin
+
+# 后端：在 Admin 根目录执行，会自动定位 my-admin-server
+yuanbootctl-python install
+yuanbootctl-python run
+```
+
+后端默认监听 `http://127.0.0.1:8090`，另开终端启动前端：
+
+```bash
+cd my-admin/my-admin-web
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+访问 `http://127.0.0.1:8848/`，默认账号为 `admin`，初始密码为 `admin123`。
+也可以创建项目时自动安装后端运行依赖：
+
+```bash
+yuanbootctl-python new admin -n my-admin --install
+```
+
+Windows 使用 `yuanbootctl-python.exe`，命令和目录结构相同。完整的 Admin 配置、权限和组件说明见[管理后台模板](admin.md)。
+
 ## 项目结构
 
 ```text
