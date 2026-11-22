@@ -10,7 +10,7 @@ yuanbootctl-python version
 从公开 PyPI 安装：
 
 ```bash
-python -m pip install yuanbootctl-python==0.3.0
+python -m pip install yuanbootctl-python==0.3.1
 ```
 
 工具安装包自动依赖同版本的 `yuanboot`，命令入口和模板资源由框架提供。
@@ -31,7 +31,7 @@ python -m pip install yuanbootctl-python==0.3.0
 例如 Linux amd64：
 
 ```bash
-VERSION=0.3.0
+VERSION=0.3.1
 curl -fLO "https://github.com/liangboceo/yuanboot-python/releases/download/v${VERSION}/yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 tar -xzf "yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 ./yuanbootctl-python new webapi -n orders
@@ -47,6 +47,7 @@ Windows 使用 `yuanbootctl-python.exe`。二进制内含 Python、框架、组�
 | 命令 | 说明 |
 | --- | --- |
 | `new` | 从模板创建项目 |
+| `install` | 管理后端虚拟环境并安装项目依赖 |
 | `run` | 启动项目中的 Web、gRPC 或 Console 宿主 |
 | `build` | 构建业务项目的 wheel 和源码包 |
 | `version` | 查看当前框架版本 |
@@ -78,9 +79,9 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 
 ```bash
 yuanbootctl-python new --list
-yuanbootctl-python new webapi -n orders --framework-version 0.3.0
-yuanbootctl-python new mvc -n portal --framework-version 0.3.0
-yuanbootctl-python new grpc -n inventory --framework-version 0.3.0
+yuanbootctl-python new webapi -n orders --framework-version 0.3.1
+yuanbootctl-python new mvc -n portal --framework-version 0.3.1
+yuanbootctl-python new grpc -n inventory --framework-version 0.3.1
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。
@@ -99,6 +100,40 @@ README 包含启动命令与文档入口，spec 包含框架说明、核心组�
 `admin` 额外生成 `<项目名>-server`、`<项目名>-web` 两个目录，以及 `spec/admin.md`。
 在 server 目录安装依赖并运行后端，在 web 目录运行 `pnpm install --frozen-lockfile && pnpm dev`。
 完整说明见[管理后台模板](admin.md)。
+
+## install — 安装依赖
+
+```bash
+yuanbootctl-python install
+yuanbootctl-python install --python /path/to/python3.7
+yuanbootctl-python install --index-url https://pypi.org/simple
+yuanbootctl-python new admin -n my-admin --install
+```
+
+在项目目录执行，Admin 根目录会自动定位到后端。安装过程创建或复用后端 `.venv`，
+安装运行依赖与开发依赖，并为 Python 3.6 / 3.7 选择兼容的 pip 和 build。
+`run` 在依赖缺失或版本不匹配时自动安装；`build` 自动补齐构建工具。
+已有环境依赖完整时直接复用。`run --install` 可强制刷新依赖。
+这三个命令支持 `--index-url`，默认沿用 pip 的配置和环境变量。
+
+## requirements.txt 与依赖维护
+
+仍可直接使用标准 pip 命令：
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+普通项目在项目根目录执行；Admin 在管理后台根目录或后端目录执行均可。
+生成的 requirements.txt 引用当前项目的 `[dev]` 依赖，不重复列出框架和组件版本。
+业务依赖可写在项目 pyproject.toml，也可追加到 requirements.txt；嵌套的 `-r` / `-c` 文件由 pip 解析。
+业务 wheel 的运行依赖以 pyproject.toml 为准；requirements.txt 可补充部署和开发环境依赖。
+CLI 会同时检查和安装 Admin 根目录、后端目录中的 requirements.txt，保留已有内容。
+旧模板缺少依赖文件时，`install` 会自动补齐，已有文件不会覆盖。
+
+框架组件及兼容版本统一在框架仓库的 pyproject.toml 维护。
+构建工具版本集中在 `yuanboot[build]`，生成项目的 `[dev]` 引用同版本的这一依赖组。
+脚手架只写入框架版本引用，安装流程共用 CLI 的 environment.py 实现。
 
 ## run — 运行项目
 
@@ -126,10 +161,9 @@ yuanbootctl-python run --profile pro --workers 2
 
 ## build — 构建业务项目
 
-在业务环境中安装构建依赖：
+直接执行构建，缺失的项目依赖和构建工具会自动安装：
 
 ```bash
-python -m pip install build
 yuanbootctl-python build
 ```
 
@@ -143,7 +177,7 @@ dist/
 
 构建版本取自业务项目 `pyproject.toml` 的 `project.version`。
 它与依赖的 yuanboot 框架版本分别管理。
-独立二进制的 `build` 使用业务项目 `.venv` 的 Python，或通过 `--python` 指定；该环境必须安装 `build`。
+`build` 优先使用项目 `.venv`，或通过 `--python` 指定环境；缺失的构建工具会自动安装。
 
 ```bash
 yuanbootctl-python build --wheel
