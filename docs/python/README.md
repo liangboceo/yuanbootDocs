@@ -2,13 +2,13 @@
 
 作者：jackson liang。Copyright (c) 2026 jackson liang。
 
-简单、轻量、快速的 Python 微服务框架，基于 **FastAPI、Uvicorn 和依赖注入**构建，支持 Python 3.11+。
+简单、轻量、快速的 Python 微服务框架，基于 **FastAPI、Uvicorn 和依赖注入**构建，支持 Python 3.6.2+。
 通过统一宿主管理 Web API、MVC、gRPC 和后台服务，为业务项目提供配置、数据访问、服务发现和可观测性。
 
 [![Release](https://img.shields.io/github/v/tag/liangboceo/yuanboot-python?color=24B898&label=release&logo=github&sort=semver)](https://github.com/liangboceo/yuanboot-python/tags)
 [![PyPI](https://img.shields.io/pypi/v/yuanboot?label=yuanboot&cacheSeconds=300)](https://pypi.org/project/yuanboot/)
 [![CLI](https://img.shields.io/pypi/v/yuanbootctl-python?label=yuanbootctl-python&cacheSeconds=300)](https://pypi.org/project/yuanbootctl-python/)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/Python-3.6.2%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/github/license/liangboceo/yuanboot-python)](https://github.com/liangboceo/yuanboot-python/blob/master/LICENSE)
 
 [快速上手 →](quickstart.md) · [框架源码](https://github.com/liangboceo/yuanboot-python) · [版本与安装](versions.md)
@@ -35,19 +35,21 @@ Web 使用 FastAPI / Uvicorn，gRPC 使用 grpc.aio，后台任务使用 Console
 各类宿主共用配置、依赖注入和生命周期，业务通过服务接口使用数据、缓存和服务治理组件。
 构建与请求流程见[基本概念与架构](architecture.md)。
 
+[Python 3.6.2–3.14 兼容说明](compatibility.md)
+
 ## 安装框架
 
-在 Python 3.11+ 环境中安装已发布版本：
+在 Python 3.6.2+ 环境中安装已发布版本：
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot[all]==0.2.0'
+python -m pip install 'yuanboot[all]==0.3.0'
 yuanbootctl-python --version
 ```
 
 Windows 激活虚拟环境使用 `.venv\Scripts\Activate.ps1`。组件按需安装，见[版本与安装](versions.md)。
-也可安装 `yuanbootctl-python==0.2.0` 自动获取同版本框架和项目命令；
+也可安装 `yuanbootctl-python==0.3.0` 自动获取同版本框架和项目命令；
 无需 Python 的独立可执行文件见[CLI 工具](cli.md#独立可执行文件)。
 
 ## 简单示例

@@ -2,14 +2,14 @@
 
 ## 环境准备
 
-安装 Python 3.11+，使用公开 PyPI 安装工具。在新目录创建虚拟环境：
+安装 Python 3.6.2+，使用公开 PyPI 安装工具。在新目录创建虚拟环境：
 
 ```bash
 mkdir yuanboot-workspace
 cd yuanboot-workspace
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install yuanbootctl-python==0.2.0
+python -m pip install yuanbootctl-python==0.3.0
 yuanbootctl-python --version
 ```
 
@@ -21,7 +21,7 @@ Windows PowerShell 使用 `.venv\Scripts\Activate.ps1` 激活环境。
 ## 创建项目
 
 ```bash
-yuanbootctl-python new webapi -n orders --framework-version 0.2.0
+yuanbootctl-python new webapi -n orders --framework-version 0.3.0
 cd orders
 python -m pip install -e '.[dev]'
 yuanbootctl-python run --profile dev --reload

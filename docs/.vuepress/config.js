@@ -138,7 +138,8 @@ module.exports = {
             children: [
               ['dependency-injection.md', '依赖注入'],
               ['hosting.md', '扩展点 - HostedService'],
-              ['versions.md', '版本与安装']
+              ['versions.md', '版本与安装'],
+              ['compatibility.md', 'Python 版本支持']
             ]
           },
           ['observability.md#日志配置', '服务日志'],

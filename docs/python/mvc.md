@@ -3,7 +3,7 @@
 ## 创建 MVC 项目
 
 ```bash
-yuanbootctl-python new mvc -n portal --framework-version 0.2.0
+yuanbootctl-python new mvc -n portal --framework-version 0.3.0
 cd portal
 python -m pip install -e '.[dev]'
 yuanbootctl-python run --reload

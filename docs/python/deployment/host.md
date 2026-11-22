@@ -21,7 +21,7 @@ MVC 项目的视图、静态文件也需一并部署。
 
 ## 安装运行环境
 
-服务器需安装 Python 3.11+、venv 支持和 Git。使用业务专用账户运行服务：
+服务器需安装 Python 3.6.2+、venv 支持和 Git。使用业务专用账户运行服务：
 
 ```bash
 sudo useradd --system --home-dir /opt/orders --shell /usr/sbin/nologin orders
