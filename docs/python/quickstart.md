@@ -9,7 +9,7 @@ mkdir yuanboot-workspace
 cd yuanboot-workspace
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install yuanbootctl-python==0.3.1
+python -m pip install yuanbootctl-python==0.3.2
 yuanbootctl-python --version
 ```
 
@@ -21,9 +21,9 @@ Windows PowerShell 使用 `.venv\Scripts\Activate.ps1` 激活环境。
 ## 创建项目
 
 ```bash
-yuanbootctl-python new webapi -n orders --framework-version 0.3.1
+yuanbootctl-python new webapi -n orders --framework-version 0.3.2
 cd orders
-python -m pip install -e '.[dev]'
+python -m pip install -r requirements.txt
 yuanbootctl-python run --profile dev --reload
 ```
 
@@ -83,7 +83,7 @@ yuanbootctl-python run --profile fat --port 9000
 ## 启用组件
 
 ```bash
-python -m pip install -e '.[dev,components]'
+python -m pip install -r requirements.txt
 ```
 
 模板的 `use_components()` 根据配置启用 MySQL、Redis、服务发现和日志等组件。
@@ -98,7 +98,7 @@ python -m pip install -e '.[dev,components]'
 ## PyCharm 调试与直接运行
 
 模板提供项目根目录 `main.py` 和 `.run/yuanboot.run.xml`。
-使用项目虚拟环境安装 `pip install -e '.[dev]'` 后，直接运行或 Debug 根目录 `main.py`，
+使用项目虚拟环境安装 `pip install -r requirements.txt` 后，直接运行或 Debug 根目录 `main.py`，
 也可从项目根目录执行 `python -m demo.main`（将 `demo` 替换为业务包名）。
 PyCharm 手动配置使用 Module name `demo.main`，Working directory 选择项目根目录。
 包内入口使用绝对导入，业务项目安装后也支持直接运行 `demo/main.py`。

@@ -6,21 +6,38 @@
 
 框架提供公开 PyPI 包、Git tag 依赖和独立命令行可执行文件，Python 包需要 Python 3.6.2+。
 
+## 0.3.2 更新
+
+`run` 只负责启动服务，缺少运行依赖时先安装；`install` / `run` 不安装业务包，
+不生成业务 `egg-info`、`build/` 或 `dist/`。仅 `build` 准备构建工具并打包。
+`requirements.txt` 可以直接通过 pip 安装，CLI 会同步 pyproject.toml 的运行依赖并迁移旧模板的自身 editable 引用。
+Windows exe 隔离外部 Python 的 DLL 搜索路径，Python 3.6 / 3.7 使用兼容的 cryptography 版本。
+
+已有 Admin 项目升级时，将后端 `pyproject.toml` 中的 `yuanboot[admin]` 版本改为 `0.3.2`，
+可选的 `yuanboot[build]`、`yuanboot[all]` 也改为同版本，然后使用新工具执行：
+
+```powershell
+yuanbootctl-python.exe install
+yuanbootctl-python.exe run
+```
+
+保留原项目的数据、配置和 `.venv`。旧版本留下的构建文件不会在升级时自动删除。
+
 ## 从公开 PyPI 安装
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install 'yuanboot[all]==0.3.1'
+python -m pip install 'yuanboot[all]==0.3.2'
 yuanbootctl-python --version
 ```
 
 也可通过工具安装包获取同版本框架：
 
 ```bash
-python -m pip install yuanbootctl-python==0.3.1
+python -m pip install yuanbootctl-python==0.3.2
 # 工具与全部标准组件：
-python -m pip install 'yuanbootctl-python[all]==0.3.1'
+python -m pip install 'yuanbootctl-python[all]==0.3.2'
 ```
 
 | PyPI 包 | 内容 |
@@ -34,8 +51,8 @@ python -m pip install 'yuanbootctl-python[all]==0.3.1'
 ## 按需安装组件
 
 ```bash
-python -m pip install 'yuanboot[mysql,redis,nacos]==0.3.1'
-python -m pip install 'yuanboot[all]==0.3.1'
+python -m pip install 'yuanboot[mysql,redis,nacos]==0.3.2'
+python -m pip install 'yuanboot[all]==0.3.2'
 ```
 
 可选组件包括 `mysql / redis / nacos / apollo / discovery / http / jwt / scheduler / grpc / xxljob`。
@@ -46,7 +63,7 @@ python -m pip install 'yuanboot[all]==0.3.1'
 需要本机安装 Git：
 
 ```bash
-python -m pip install 'yuanboot[all] @ git+https://github.com/liangboceo/yuanboot-python.git@v0.3.1'
+python -m pip install 'yuanboot[all] @ git+https://github.com/liangboceo/yuanboot-python.git@v0.3.2'
 ```
 
 Git tag 保持不可变，业务项目仍可按此方式管理框架依赖。
@@ -57,7 +74,7 @@ Git tag 保持不可变，业务项目仍可按此方式管理框架依赖。
 升级工具后新生成项目使用新版本，已有业务项目保留原版本。创建时也可显式指定：
 
 ```bash
-yuanbootctl-python new webapi -n orders --framework-version 0.3.1
+yuanbootctl-python new webapi -n orders --framework-version 0.3.2
 ```
 
 ```toml
@@ -65,17 +82,17 @@ yuanbootctl-python new webapi -n orders --framework-version 0.3.1
 name = "orders"
 version = "0.1.0"
 dependencies = [
-  "yuanboot==0.3.1",
+  "yuanboot==0.3.2",
 ]
 
 [project.optional-dependencies]
 components = [
-  "yuanboot[all]==0.3.1",
+  "yuanboot[all]==0.3.2",
 ]
 ```
 
-gRPC 项目的基础依赖使用 `yuanboot[grpc]==0.3.1`。
-显式指定 `--framework-ref v0.3.1` 或 `--framework-repo` 可切换为 Git 依赖，安装时需要 Git。
+gRPC 项目的基础依赖使用 `yuanboot[grpc]==0.3.2`。
+显式指定 `--framework-ref v0.3.2` 或 `--framework-repo` 可切换为 Git 依赖，安装时需要 Git。
 PyPI 的 `--framework-version` 与这两个 Git 选项不能混用。
 业务项目版本与框架版本分别维护，同一个业务项目中的框架依赖应保持一致。
 
@@ -100,7 +117,7 @@ uv sync --frozen --extra components
 
 维护者通过 GitHub **Actions → Build Release → Run workflow** 发布：
 
-1. 选择 `master`，填写 `version`，例如 `0.3.1`，不带 `v`。
+1. 选择 `master`，填写 `version`，例如 `0.3.2`，不带 `v`。
 2. 正式发布选择 `draft=false`；按需要选择是否为 prerelease。
 3. 工作流检查 Python 3.6–3.14，构建两个包及五个平台的独立可执行文件。
 4. 全部通过后创建不可变的 `v<version>` tag，上传 GitHub Release 和 `SHA256SUMS`。

@@ -10,7 +10,7 @@ yuanbootctl-python version
 从公开 PyPI 安装：
 
 ```bash
-python -m pip install yuanbootctl-python==0.3.1
+python -m pip install yuanbootctl-python==0.3.2
 ```
 
 工具安装包自动依赖同版本的 `yuanboot`，命令入口和模板资源由框架提供。
@@ -31,7 +31,7 @@ python -m pip install yuanbootctl-python==0.3.1
 例如 Linux amd64：
 
 ```bash
-VERSION=0.3.1
+VERSION=0.3.2
 curl -fLO "https://github.com/liangboceo/yuanboot-python/releases/download/v${VERSION}/yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 tar -xzf "yuanbootctl-python_${VERSION}_linux_amd64.tar.gz"
 ./yuanbootctl-python new webapi -n orders
@@ -79,9 +79,9 @@ yuanbootctl-python new <模板> -n <项目名> -p <输出目录>
 
 ```bash
 yuanbootctl-python new --list
-yuanbootctl-python new webapi -n orders --framework-version 0.3.1
-yuanbootctl-python new mvc -n portal --framework-version 0.3.1
-yuanbootctl-python new grpc -n inventory --framework-version 0.3.1
+yuanbootctl-python new webapi -n orders --framework-version 0.3.2
+yuanbootctl-python new mvc -n portal --framework-version 0.3.2
+yuanbootctl-python new grpc -n inventory --framework-version 0.3.2
 ```
 
 项目名以字母开头，可包含字母、数字、短横线和下划线。输出目录下已有同名项目时不会覆盖。
@@ -111,8 +111,9 @@ yuanbootctl-python new admin -n my-admin --install
 ```
 
 在项目目录执行，Admin 根目录会自动定位到后端。安装过程创建或复用后端 `.venv`，
-安装运行依赖与开发依赖，并为 Python 3.6 / 3.7 选择兼容的 pip 和 build。
-`run` 在依赖缺失或版本不匹配时自动安装；`build` 自动补齐构建工具。
+仅安装运行依赖，并为 Python 3.6 / 3.7 选择兼容的 pip 和组件版本。
+`run` 在运行依赖缺失或版本不匹配时先安装再启动，不构建业务项目。
+`install` / `run` 不安装业务包，不生成业务 `egg-info`；仅 `build` 准备构建工具并打包。
 已有环境依赖完整时直接复用。`run --install` 可强制刷新依赖。
 这三个命令支持 `--index-url`，默认沿用 pip 的配置和环境变量。
 
@@ -125,11 +126,12 @@ python -m pip install -r requirements.txt
 ```
 
 普通项目在项目根目录执行；Admin 在管理后台根目录或后端目录执行均可。
-生成的 requirements.txt 引用当前项目的 `[dev]` 依赖，不重复列出框架和组件版本。
+生成的 requirements.txt 直接声明运行依赖，Admin 根目录通过 `-r` 引用后端文件。
+CLI 将后端文件的标记区与 pyproject.toml 的运行依赖同步；标记区外保留业务追加内容。
 业务依赖可写在项目 pyproject.toml，也可追加到 requirements.txt；嵌套的 `-r` / `-c` 文件由 pip 解析。
 业务 wheel 的运行依赖以 pyproject.toml 为准；requirements.txt 可补充部署和开发环境依赖。
 CLI 会同时检查和安装 Admin 根目录、后端目录中的 requirements.txt，保留已有内容。
-旧模板缺少依赖文件时，`install` 会自动补齐，已有文件不会覆盖。
+旧模板缺少依赖文件时自动补齐；旧模板中的项目自身 `-e .[dev]` 引用自动迁移为运行依赖，保留其他条目。
 
 框架组件及兼容版本统一在框架仓库的 pyproject.toml 维护。
 构建工具版本集中在 `yuanboot[build]`，生成项目的 `[dev]` 引用同版本的这一依赖组。

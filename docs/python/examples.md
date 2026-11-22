@@ -62,9 +62,9 @@ curl -X POST http://127.0.0.1:8080/api/greet \
 ## 使用 MVC 模板
 
 ```bash
-yuanbootctl-python new mvc -n portal --framework-version 0.3.1
+yuanbootctl-python new mvc -n portal --framework-version 0.3.2
 cd portal
-python -m pip install -e '.[dev]'
+python -m pip install -r requirements.txt
 yuanbootctl-python run --reload
 ```
 

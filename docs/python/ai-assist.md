@@ -140,9 +140,9 @@ yuanboot:
 先完成[框架安装](versions.md)，再执行：
 
 ```bash
-yuanbootctl-python new mvc -n userservice --framework-version 0.3.1
+yuanbootctl-python new mvc -n userservice --framework-version 0.3.2
 cd userservice
-python -m pip install -e '.[dev]'
+python -m pip install -r requirements.txt
 yuanbootctl-python run --profile dev --reload
 ```
 
